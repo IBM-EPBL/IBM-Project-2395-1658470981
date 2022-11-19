@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+  
+<head>
+  <meta charset="UTF-8">
+  <title>Vehicle Prediction</title>
+  <!--<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">-->
+<link rel="stylesheet" href="{{ url_for('static', filename='img/background.jpg') }}">
+  <style>
+    body{
+      background-image: url('../static/img/background.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    
+    h1 {text-align: center;}
+    table.center 
+    {
+     margin-left: auto; 
+     margin-right: auto;
+     padding: 10px;
+
+    }
+    td
+    {
+      width: 100px;
+    }
+  </style>
+</head>
+
+<body >
+  <div id="image" style="background:url(/static/images/ima.jpg) center / cover no-repeat;"></div>
+ <div class="login">
+  <br><br><br><br><br><br>
+	<h1>Vehicle Mileage Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+  <table class="center" >
+   
+    <form action="{{ url_for('predict')}}"method="post">
+      <tr>
+        <td>Cylinders</td>
+        <td><input type="text" name="Cylinders" placeholder="Cylinders" required="required" /></td>
+      </tr>
+      <tr>
+        <td><br>Horsepower</td>
+        <td><br><input type="text" name="Horsepower" placeholder="Horsepower" required="required" /></td>
+      </tr>
+      <tr>
+        <td><br>Weight</td>
+        <td><br><input type="text" name="Weight" placeholder="Weight" required="required" /></td>
+      </tr>
+        <td><br>Displacement</td>
+		    <td><br><input type="text" name="Displacement" placeholder="Displacement" required="required" /></td>
+      </tr>
+      <br>
+      
+      
+    
+    <!--<tr>
+      <br>
+      
+      <td style="color:black;font-size: large;font-weight: bolder;"> <br><br>{{ prediction_text }}
+      </td>
+    </tr>-->
+  </table>
+  <table style="margin-left: auto; margin-right:auto">
+    <tr>
+        
+      <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button></td>
+    </tr>
+  </table>
+  <br><br>
+  <table style="margin-left: auto; margin-right:auto">
+    <tr>
+      <td style="color:black;font-size: large;font-weight: bolder;width: fit-content;"> {{ prediction_text }}
+      </td>
+    </tr>
+  </table>
+</form>
+   <br>
+   <br>
+   <!--<div style="flex: 2;"><img src="../static/img/car.jpg" width="100%"></div>-->
+ </div>
+ 
+</body>
+</html>
